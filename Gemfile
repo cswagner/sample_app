@@ -3,6 +3,9 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.8'
 
+gem 'bootstrap-sass', '2.3.2.0'    # converts LESS (default for Twitter bootstrap) to Sass
+gem 'sprockets', '2.11.0'          # library for compiling and serving web assets
+
 group :development, :test do
   gem 'sqlite3', '1.3.8'
   gem 'rspec-rails', '2.13.1'    # testing tool for Ruby programs

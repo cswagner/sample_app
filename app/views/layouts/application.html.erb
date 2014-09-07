@@ -5,10 +5,19 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <!--
+    If the browser is Internet Explorer and it's less than version 9, include HTML5 shim
+    to enable some HTML5 elements not yet supported.
+  -->
+  <%= render 'layouts/shim' %>
 </head>
 <body>
+  <%= render 'layouts/header' %>
 
-<%= yield %>
-
+  <div class="container">
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
 </body>
 </html>
