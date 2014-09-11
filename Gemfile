@@ -6,6 +6,9 @@ gem 'rails', '4.0.8'
 gem 'bootstrap-sass', '2.3.2.0'    # converts LESS (default for Twitter bootstrap) to Sass
 gem 'sprockets', '2.11.0'          # library for compiling and serving web assets
 gem 'bcrypt-ruby', '3.1.2'         # for hashing user passwords
+gem 'faker', '1.1.2'               # creates sample users with semi-realistic names/email addresses
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
