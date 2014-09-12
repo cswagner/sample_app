@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :microposts, dependent: :destroy
+
   # validates attributes are not blank
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -15,6 +17,10 @@ class User < ActiveRecord::Base
   # of the password, require that they match, and adds an authenticate method to compare
   # a hashed password to the password_digest to authenticate users.
   has_secure_password
+
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
