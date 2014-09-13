@@ -12,7 +12,11 @@ SampleApp::Application.routes.draw do
   # Endows our application with all the actions needed for a RESTful Users
   # resource, along with a large number of named routes for generating user
   # URLs.
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   ##
   # Since we have no need to show or update sessions, restrict the actions to only
@@ -20,6 +24,7 @@ SampleApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
